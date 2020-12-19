@@ -3,15 +3,15 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #[[Собираем основную утилиту]]
-project(co_exp)
+project(coexp)
 #[[Добавляем в сборку исходники]]
 file(GLOB src src/*.cpp)
-add_executable(co_exp ${src})
+add_executable(coexp ${src})
 #[[Указываем компилятору путь поиска своих h файлов]]
 include_directories(src)
 #[[Берем у vcpkg зависимость для парсинга аргументов командной строки]]
 find_package(CLI11 CONFIG REQUIRED)
-target_link_libraries(co_exp PRIVATE CLI11::CLI11)
+target_link_libraries(coexp PRIVATE CLI11::CLI11)
 
 #[[Создаем тестовый проект]]
 project(test)
