@@ -20,6 +20,8 @@ list(FILTER src EXCLUDE REGEX ".*main.cpp$")
 #[[Добавляем исходники тестов]]
 file(GLOB test_src test/*.cpp)
 add_executable(test ${src} ${test_src})
+#[[Указываем компилятору путь поиска тестовых h файлов]]
+include_directories(test)
 #[[Берём у vcpkg библиотеку для тестирования]]
 find_package(Catch2 CONFIG REQUIRED)
 target_link_libraries(test PRIVATE Catch2::Catch2)
