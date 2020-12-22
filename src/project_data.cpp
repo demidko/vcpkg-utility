@@ -3,14 +3,16 @@
 #include <CLI/Formatter.hpp>
 #include <CLI/Config.hpp>
 
-template<typename T>
-CLI::callback_t by(T &&handler) {
-  return [&handler](auto &args) {
-    for (auto &&x: args) {
-      handler(x);
+namespace {
+  template<typename T>
+  CLI::callback_t by(T &&handler) {
+    return [&handler](auto &args) {
+      for (auto &&x: args) {
+        handler(x);
+      };
+      return true;
     };
-    return true;
-  };
+  }
 }
 
 project_data project_data::from_args(int argc, char **argv) {
@@ -37,4 +39,14 @@ project_data project_data::from_args(int argc, char **argv) {
   }
 
   return project;
+}
+
+project_data::readme_builder project_data::create_directory() {
+  auto project_path = std::filesystem::current_path().append(name);
+  std::filesystem::create_directory(project_path);
+  return project_data::readme_builder{project_path, description};
+}
+
+project_data::repo_builder project_data::readme_builder::create_repo() {
+  return project_data::repo_builder();
 }
