@@ -1,4 +1,4 @@
-#include <project_data.h>
+#include <Project.h>
 #include <CLI/App.hpp>
 #include <CLI/Formatter.hpp>
 #include <CLI/Config.hpp>
@@ -15,10 +15,10 @@ namespace {
   }
 }
 
-project_data project_data::from_args(int argc, char **argv) {
+Project Project::fromArgs(int argc, char **argv) {
 
   CLI::App app("C++20 projects creator", "app");
-  project_data project;
+  Project project(std::string(), std::string());
 
   app.add_option(
     "-n,--name",
@@ -41,12 +41,16 @@ project_data project_data::from_args(int argc, char **argv) {
   return project;
 }
 
-project_data::readme_builder project_data::create_directory() {
+Project::Project(std::string name, std::string description, std::filesystem::path directory)
+  : name(std::move(name)), description(std::move(description)), directory(std::move(directory)) {}
+
+Project::project_builder Project::create_directory() {
   auto project_path = std::filesystem::current_path().append(name);
   std::filesystem::create_directory(project_path);
-  return project_data::readme_builder{project_path, description};
+  return Project::project_builder{project_path, description};
 }
 
-project_data::repo_builder project_data::readme_builder::create_repo() {
-  return project_data::repo_builder();
+void Project::project_builder::create_readme() {
+
+  return Project::repo_builder();
 }

@@ -1,10 +1,9 @@
-#include <project_data.h>
+#include <Project.h>
 #include <iostream>
 #include <filesystem>
 
 
-
 int main(int argc, char **argv) {
-  const auto project = project_data::from_args(argc, argv)
+  const auto project = Project::fromArgs(argc, argv)
     .create_directory();
 }
