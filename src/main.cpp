@@ -4,5 +4,5 @@
 
 
 int main(int argc, char **argv) {
-  const auto project = Project::fromArgs(argc, argv);
+  Project::Creator::From(argc, argv);
 }
