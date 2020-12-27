@@ -1,16 +1,11 @@
 #include <ProjectBuilder.h>
 #include <array>
-
 #include <iostream>
+#include <fmt/core.h>
+#include <fmt/color.h>
 
-int execute(std::string_view command) {
-  return std::system(command.data());
-}
-
-#include <filesystem>
+using fmt::color;
 
 int main(int argc, char **argv) {
-  std::filesystem::path x("aaa");
-  auto y = std::filesystem::path{x}.append("ooo");
-  std::cout << x;
+  fmt::print(fg(color::dark_orange), "ooo {}", 4);
 }
