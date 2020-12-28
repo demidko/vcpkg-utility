@@ -4,13 +4,13 @@
 
 A cross-platform tool for quickly creating `C++ 20` projects with one command. The utility creates
 `CMakeLists.txt`, entry points, pulls up `vcpkg` and the minimum required dependencies for command line projects,
-adds `README.md` and finishes all this by creating a script to build the directory in one click. In this way, created
+adds `README.md` and finishes all this by creating a build script. In this way, created
 projects are supported in `CLion`,` Visual Studio`, `VS Code` and can be easily extended with any dependencies
 from `vcpkg`.
 
 ### Motivation and goals
 
-As soon as a new idea of a C++ directory appears in my head, I would just like to set its name, a short description, and
+As soon as a new idea of a C++ project appears in my head, I would just like to set its name, a short description, and
 immediately start writing code, then collecting releases with one click/command without losing the final assembly
 performance. However, in reality, you have to copy-paste or create manually each time the typical `CMakeLists.txt`
 ,` README.md`, source directories structure. Therefore, humanity just needs a tool to fast deployment of new C ++ 20
