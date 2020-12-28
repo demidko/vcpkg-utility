@@ -32,7 +32,7 @@ We need a build system [`cmake`](https://cmake.org/download) and a manager
 libraries [`vcpkg`](https://github.com/microsoft/vcpkg). They can be easily installed with a package manager such
 as `brew`.
 
-1. Install the dependencies:
+1. Install the dependencies:  
    `vcpkg install` [`catch2`](https://github.com/catchorg/Catch2)  
    `vcpkg install` [`cli11`](https://github.com/CLIUtils/CLI11)  
    `vcpkg install` [`fmt`](https://github.com/fmtlib/fmt)
