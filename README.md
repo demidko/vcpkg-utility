@@ -1,79 +1,48 @@
 ## proj
 
-Кроссплатформенная утилита для быстрого разворачивания `C++20` проектов одной командой. Утилита создаёт
-cmake-конфигурацию проекта и тестов, точки входа, подтягивает `vcpkg` и минимально неообходимые зависимости для утилит
-командной строки, добавляет `README` и завершается все это созданием скрипта сборки проекта в один клик. Таким образом,
-созданные проекты поддерживаются в `CLion`, `Visual Studio`, `VS Code` и могут быть легко дополнены любыми зависимостями
-из `vcpkg`.
+[[Documentation in Russian here | Документация на русском здесь]](README.ru.md)
 
-### Мотивация и цели?
+A cross-platform tool for quickly creating `C++ 20` projects with one command. The utility creates
+`CMakeLists.txt`, entry points, pulls up `vcpkg` and the minimum required dependencies for command line projects,
+adds `README.md` and finishes all this by creating a script to build the directory in one click. In this way, created
+projects are supported in `CLion`,` Visual Studio`, `VS Code` and can be easily extended with any dependencies
+from `vcpkg`.
 
-Как только в голове возникает новая идея C++ проекта, хотелось бы просто задавать его имя, краткое описание, и сразу же
-начинать писать код, собирая затем релизы одним кликом/командой и не потеряв при этом в производительности итоговой
-сборки.  
-Однако в реальности приходится копипастить или создавать вручную каждый раз типовые `CMakeLists.txt`, `README.md`,
-структуру папок, либо допиливать созданный по шаблону IDE проект. Поэтому человечеству просто необходим инструмент для
-быстрого разворачивания новых C++20 проектов.
+### Motivation and goals
 
-### Преимущества и отличия от аналогов?
+As soon as a new idea of a C++ directory appears in my head, I would just like to set its name, a short description, and
+immediately start writing code, then collecting releases with one click/command without losing the final assembly
+performance. However, in reality, you have to copy-paste or create manually each time the typical `CMakeLists.txt`
+,` README.md`, source directories structure. Therefore, humanity just needs a tool to fast deployment of new C ++ 20
+projects.
 
-Утилита замахивается на универсальный способ создания проектов, по аналогии с `dotnet` для C# и `cargo` для Rust. Сейчас
-CMake проект развернуть можно используя интерфейс IDE, либо вручную создав структуру и конфигурацию. Даже
-если [ваша любимая] IDE кроссплатформенная, она все равно слишком тяжелая зависимость чтобы тащить ее за собой для
-разворачивания проектов, ведь любимые IDE у всех разные, а кто-то вообще vim использует. Поэтому небольшая
-кроссплатформенная утилита генерирующая проекты поддерживаемые любой IDE будет весьма кстати.
+### How to get
 
-### Как установить утилиту?
+Check in your package manager or [download here](https://github.com/demidko/proj/releases)
 
-[ссылка будет здесь]
+### How to use
 
-### Как cj?
+```shell
+proj -n name -d 'short description of your directory'
+```
 
-`proj -n name -d 'description of your project'`
+### How to build
 
-### Как собирать исходный код утилиты?
+We need a build system [`cmake`](https://cmake.org/download) and a manager
+libraries [`vcpkg`](https://github.com/microsoft/vcpkg). They can be easily installed with a package manager such
+as `brew`.
 
-Нам понадобится система сборки [`cmake`](https://cmake.org/download) и менеджер
-библиотек [`vcpkg`](https://github.com/microsoft/vcpkg). Их легко можно установить пакетным менеджером, например `brew`.
-
-1. Устанавливаем фреймворк для тестирования:  
+1. Install the dependencies:
    `vcpkg install` [`catch2`](https://github.com/catchorg/Catch2)
-1. Устанавливаем зависимость для парсинга аргументов командной строки:  
    `vcpkg install` [`cli11`](https://github.com/CLIUtils/CLI11)
-1. Подготавливаем проект для сборки с использованием зависимостей `vcpkg`:  
+   `vcpkg install` [`fmt`](https://github.com/fmtlib/fmt)
+1. If you are using an IDE, you can stop at this step simply by setting `CMake options` as the result
+   of `vcpkg integrate install` command.  
+   Without IDE prepare the directory for building using the dependencies `vcpkg`:  
    ```cmake `vcpkg integrate install | tail -1 | cut -d \" -f2` -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" -B cmake-build-release```  
-   На Windows вместо кода в кавычках, вручную подставьте параметр полученный вызовом `vcpkg integrate install`.
-1. Собираем проект и тесты:  
-   `cmake --build cmake-build-release --target all`  
-   После этого в директории `cmake-build-release` основная self-executable утилита появится под именем `proj`.  
-   Тесты можно выполнить запустив расположенный рядом файл `test`.
-
-### Сборка утилиты с использованием IDE?
-
-1. Устанавливаем фреймворк для тестирования:  
-   `vcpkg install catch2`
-1. Устанавливаем зависимость для парсинга аргументов командной строки:  
-   `vcpkg install cli11`
-1. Установите для `CMake options` результат исполнения команды `vcpkg integrate install`.
-1. Не забудьте выбрать релиз-конфигурацию. Дальше используйте обычный интерфейс сборки.
-
-### Соглашения насчет исходного кода утилиты?
-
-* Точка входа обязательно должна быть расположена в файле `Main.cpp` для корректной сборки.
-* Для инициализации ресурсов используем [современную передачу параметров по значению](https://habr.com/ru/post/460955/),
-  а не по константной ссылке.
-* В релизную сборку попадает только результат компиляции `*.cpp` файлов в папке `src`.
-* Папка `src` содержит `*.cpp` и `*.h` файлы проекта совместно.
-* Папка `test` содержит `*.cpp` и `*.h` файлы тестов проекта совместно.
-* Каждый `*.h` файл должен определять в глобальном пространстве имен только одну сущность, название которой должно
-  совпадать с именем файла.
-* Содержимое `*.cpp` файлов не задекларированное в `*.h` файле должно быть защищено от `external linkage` из других
-  едениц компиляции путём добавления в анонимное пространство имён или же добавления ключевого слова `static`.
-
-### TODO
-
-1. Перевести документацию проекта на английский.
-1. Добавить утилиту в репозитории популярных менеджеров зависимостей.
-1. Написать статьи на хабр, reddit, hackernews.
-1. Добавить больше типов проектов.
-1. Бесконечный цикл багфиксов.
+   On Windows, instead of the code in quotes, manually substitute the parameter obtained by
+   calling `vcpkg integrate install`.
+1. Putting together the directory and tests:
+   `cmake --build cmake-build-release --target all`
+   After that, the main self-executable utility will appear in the `cmake-build-release` directory under the name `proj`
+   . Tests can be run by running the `test` file located nearby.
