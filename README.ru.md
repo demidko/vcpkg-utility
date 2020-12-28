@@ -25,7 +25,7 @@ CMake проект развернуть можно используя интер
 
 ### Как установить утилиту?
 
-[ссылка будет здесь]
+Check in your package manager or [download here](https://github.com/demidko/proj/releases)
 
 ### Как использовать?
 
