@@ -33,8 +33,8 @@ libraries [`vcpkg`](https://github.com/microsoft/vcpkg). They can be easily inst
 as `brew`.
 
 1. Install the dependencies:
-   `vcpkg install` [`catch2`](https://github.com/catchorg/Catch2)
-   `vcpkg install` [`cli11`](https://github.com/CLIUtils/CLI11)
+   `vcpkg install` [`catch2`](https://github.com/catchorg/Catch2)  
+   `vcpkg install` [`cli11`](https://github.com/CLIUtils/CLI11)  
    `vcpkg install` [`fmt`](https://github.com/fmtlib/fmt)
 1. If you are using an IDE, you can stop at this step simply by setting `CMake options` as the result
    of `vcpkg integrate install` command.  
