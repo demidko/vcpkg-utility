@@ -23,7 +23,7 @@ Check in your package manager or [download here](https://github.com/demidko/proj
 ### How to use
 
 ```shell
-proj -n name -d 'short description of your directory'
+proj -n name -d 'short description of your project'
 ```
 
 ### How to build
