@@ -7,7 +7,7 @@ A cross-platform tool for quickly creating `C++ 20` projects with one command. T
 adds `README.md` and finishes all this by creating a build script. In this way, created projects are supported
 in `CLion`, `Visual Studio`, `VS Code` and can be easily extended with any dependencies from `vcpkg`.
 
-### Motivation and goals
+### Motivation and goals?
 
 As soon as a new idea of a C++ project appears in my head, I would just like to set its name, a short description, and
 immediately start writing code, then collecting releases with one click/command without losing the final assembly
@@ -15,7 +15,7 @@ performance. However, in reality, you have to copy-paste or create manually each
 , `README.md`, source directories structure. Therefore, humanity just needs a tool to fast deployment of new C ++ 20
 projects.
 
-### How to get
+### How to get?
 
 Check in your package manager or [download here](https://github.com/demidko/proj/releases)
 
@@ -25,7 +25,7 @@ Check in your package manager or [download here](https://github.com/demidko/proj
 proj -n name -d 'short description of your project'
 ```
 
-### How to build
+### How to build?
 
 We need a build system [`cmake`](https://cmake.org/download) and a manager
 libraries [`vcpkg`](https://github.com/microsoft/vcpkg). They can be easily installed with a package manager such

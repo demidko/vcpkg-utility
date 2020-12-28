@@ -24,7 +24,7 @@ namespace {
 }
 
 Project &Project::addGit() {
-
+  fmt::print("dir: {}", std::string(directory));
   Command::execute(fmt::format("git init {}", directory.u8string()))
     .orWarning("failed to initialize git repository");
   return *this;
