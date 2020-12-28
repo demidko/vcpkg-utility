@@ -40,7 +40,7 @@ as `brew`.
    of `vcpkg integrate install` command.  
    Without IDE prepare the directory for building using the dependencies `vcpkg`:  
    ```cmake `vcpkg integrate install | tail -1 | cut -d \" -f2` -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" -B cmake-build-release```  
-   On Windows, instead of the code in quotes, manually substitute the parameter obtained by
+   On Windows, instead of the quotes, manually substitute the parameter obtained by
    calling `vcpkg integrate install`.
 1. Putting together the directory and tests:
    `cmake --build cmake-build-release --target all`
