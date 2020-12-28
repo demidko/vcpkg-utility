@@ -40,7 +40,7 @@ CMake проект развернуть можно используя интер
    `vcpkg install` [`catch2`](https://github.com/catchorg/Catch2)
 1. Устанавливаем зависимость для парсинга аргументов командной строки:  
    `vcpkg install` [`cli11`](https://github.com/CLIUtils/CLI11)
-1. Устанавливаем fmt:
+1. Устанавливаем fmt:  
    `vcpkg install` [`fmt`](https://github.com/fmtlib/fmt)
 1. Подготавливаем проект для сборки с использованием зависимостей `vcpkg`:  
    ```cmake `vcpkg integrate install | tail -1 | cut -d \" -f2` -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" -B cmake-build-release```  
@@ -56,6 +56,8 @@ CMake проект развернуть можно используя интер
    `vcpkg install catch2`
 1. Устанавливаем зависимость для парсинга аргументов командной строки:  
    `vcpkg install cli11`
+1. Устанавливаем fmt:  
+   `vcpkg install` [`fmt`](https://github.com/fmtlib/fmt)
 1. Установите для `CMake options` результат исполнения команды `vcpkg integrate install`.
 1. Не забудьте выбрать релиз-конфигурацию. Дальше используйте обычный интерфейс сборки.
 
