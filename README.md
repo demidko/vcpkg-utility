@@ -4,9 +4,8 @@
 
 A cross-platform tool for quickly creating `C++ 20` projects with one command. The utility creates
 `CMakeLists.txt`, entry points, pulls up `vcpkg` and the minimum required dependencies for command line projects,
-adds `README.md` and finishes all this by creating a build script. In this way, created
-projects are supported in `CLion`,` Visual Studio`, `VS Code` and can be easily extended with any dependencies
-from `vcpkg`.
+adds `README.md` and finishes all this by creating a build script. In this way, created projects are supported
+in `CLion`,` Visual Studio`, `VS Code` and can be easily extended with any dependencies from `vcpkg`.
 
 ### Motivation and goals
 
@@ -37,11 +36,10 @@ as `brew`.
    `vcpkg install` [`cli11`](https://github.com/CLIUtils/CLI11)  
    `vcpkg install` [`fmt`](https://github.com/fmtlib/fmt)
 1. If you are using an IDE, you can stop at this step simply by setting `CMake options` as the result
-   of `vcpkg integrate install` command.  
-   Without IDE prepare the directory for building using the dependencies `vcpkg`:  
+   of `vcpkg integrate install` command.
+1. Prepare the directory for building using the dependencies `vcpkg`:  
    ```cmake `vcpkg integrate install | tail -1 | cut -d \" -f2` -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" -B cmake-build-release```  
-   On Windows, instead of the quotes, manually substitute the parameter obtained by
-   calling `vcpkg integrate install`.
+   On Windows, instead of the quotes, manually substitute the parameter obtained by calling `vcpkg integrate install`.
 1. Putting together the directory and tests:
    `cmake --build cmake-build-release --target all`
    After that, the main self-executable utility will appear in the `cmake-build-release` directory under the name `proj`
