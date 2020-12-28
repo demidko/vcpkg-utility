@@ -12,7 +12,7 @@ in `CLion`,` Visual Studio`, `VS Code` and can be easily extended with any depen
 As soon as a new idea of a C++ project appears in my head, I would just like to set its name, a short description, and
 immediately start writing code, then collecting releases with one click/command without losing the final assembly
 performance. However, in reality, you have to copy-paste or create manually each time the typical `CMakeLists.txt`
-,` README.md`, source directories structure. Therefore, humanity just needs a tool to fast deployment of new C ++ 20
+, `README.md`, source directories structure. Therefore, humanity just needs a tool to fast deployment of new C ++ 20
 projects.
 
 ### How to get
