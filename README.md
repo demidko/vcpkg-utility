@@ -5,7 +5,7 @@
 A cross-platform tool for quickly creating `C++ 20` projects with one command. The utility creates
 `CMakeLists.txt`, entry points, pulls up `vcpkg` and the minimum required dependencies for command line projects,
 adds `README.md` and finishes all this by creating a build script. In this way, created projects are supported
-in `CLion`,` Visual Studio`, `VS Code` and can be easily extended with any dependencies from `vcpkg`.
+in `CLion`, `Visual Studio`, `VS Code` and can be easily extended with any dependencies from `vcpkg`.
 
 ### Motivation and goals
 
