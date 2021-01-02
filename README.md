@@ -1,6 +1,6 @@
 ## proj
 
-A cross-platform C++20 build system with a dependency manager, powered by integration of [`cmake`](https://cmake.org/)
+A cross-platform `C++20` build system with a dependency manager, powered by integration of [`cmake`](https://cmake.org/)
 with [` vcpkg`](https://github.com/microsoft/vcpkg).
 
 ### Motivation and goals
