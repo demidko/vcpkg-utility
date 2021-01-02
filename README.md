@@ -13,7 +13,7 @@ In the С++ world, now...
 * There is no cross-platform build without Qt.
 * These problems overlap, causing pain and suffering for developers.
 
-Therefore, `proj` is a tool for creating and building cross-platform C++ projects using external dependencies. Proj is a
+Therefore, `proj` is a tool for creating and building cross-platform C++ projects using external dependencies. `proj` is a
 tool like `maven` for Java, `dotnet` for .NET and `cargo` for Rust.
 
 ### `proj` features and benefits
