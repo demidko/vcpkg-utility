@@ -53,7 +53,7 @@ libraries. It's easy to install with system package manger, `brew` for example.
    of `vcpkg integrate install` command.
 1. Prepare the directory for building using the dependencies `vcpkg`:  
    ```cmake `vcpkg integrate install | tail -1 | cut -d \" -f2` -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" -B cmake-build-release```  
-   On Windows, instead of the quotes, manually substitute the parameter obtained by calling `vcpkg integrate install`.
+   On Windows, instead of the code in ``` `` ``` quotes, manually substitute the parameter obtained by calling `vcpkg integrate install`.
 1. Putting together the directory and tests:
    `cmake --build cmake-build-release --target all`
    After that, the main self-executable utility will appear in the `cmake-build-release` directory under the name `proj`
