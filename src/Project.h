@@ -1,12 +1,13 @@
 #include <string>
-#include <string_view>
 #include <filesystem>
 
 struct Project {
 
-  const std::string name;
   const std::string description;
   const std::filesystem::path directory;
+  const std::string name;
+
+  explicit Project(std::string name, std::string description = "");
 
   Project &addGit();
 
@@ -15,6 +16,4 @@ struct Project {
   Project &addCMakeLists();
 
   Project &addSources();
-
-  explicit Project(std::string_view name, std::string_view description = "");
 };
