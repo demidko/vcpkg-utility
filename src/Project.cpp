@@ -27,7 +27,7 @@ Project &Project::addCMakeLists() {
 }
 
 Project &Project::addReadme() {
-  Filesystem::createTextFile(directory / "README.ru.md", README_TEXT, name, description);
+  Filesystem::createTextFile(directory / "README.md", README_TEXT, name, description);
   return *this;
 }
 

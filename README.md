@@ -1,35 +1,50 @@
 ## proj
 
-[[Documentation in Russian here | Документация на русском здесь]](README.ru.md)
+A cross-platform C++20 build system with a dependency manager, powered by integration of [`cmake`](https://cmake.org/)
+with [` vcpkg`](https://github.com/microsoft/vcpkg).
 
-A cross-platform tool for quickly creating `C++ 20` projects with one command. The utility creates
-`CMakeLists.txt`, entry points, pulls up `vcpkg` and the minimum required dependencies for command line projects,
-adds `README.md` and finishes all this by creating a build script. In this way, created projects are supported
-in `CLion`, `Visual Studio`, `VS Code` and can be easily extended with any dependencies from `vcpkg`.
+### Motivation and goals
 
-### Motivation and goals?
+In the С++ world, now...
 
-As soon as a new idea of a C++ project appears in my head, I would just like to set its name, a short description, and
-immediately start writing code, then collecting releases with one click/command without losing the final assembly
-performance. However, in reality, you have to copy-paste or create manually each time the typical `CMakeLists.txt`
-, `README.md`, source directories structure. Therefore, humanity just needs a tool to fast deployment of new C ++ 20
-projects.
+* When an idea arises, you have to create manually `CMakeLists.txt`,` README.md`, a folder structure, or finish the
+  project created by the IDE to a portable state.
+* There is no dependency management.
+* There is no cross-platform build without Qt.
+* These problems overlap, causing pain and suffering for developers.
 
-### How to get?
+Therefore, proj is a tool for creating and building cross-platform C++ projects using external dependencies. Proj is a
+tool like maven for Java, dotnet for .NET and Cargo for Rust.
+
+### `proj` features and benefits
+
+Full compatibility with existing technologies.
+
+* To create a project, specify name, short description, and immediately get project repository with all configuration
+  files.
+* No configuration files are added except for the traditional `CMakeLists.txt`.
+* Adding dependencies is done with one command through integration with [`vcpkg`] (https://github.com/microsoft/vcpkg).
+* A project with all dependencies can be built on different OSes without changing the configuration.
+* Created projects are supported by all modern IDEs.
+
+### How to get `proj`?
 
 Check in your package manager or [download here](https://github.com/demidko/proj/releases)
 
-### How to use
+### How to use `proj`?
 
-```shell
-proj -n name -d 'short description of your project'
-```
+#### Create new cross-platform C++ project
 
-### How to build?
+`proj -n name -d 'description of your directory'`
 
-We need a build system [`cmake`](https://cmake.org/download) and a manager
-libraries [`vcpkg`](https://github.com/microsoft/vcpkg). They can be easily installed with a package manager such
-as `brew`.
+This command create `CMakeLists.txt` configuration for project and tests, entry points, adds `vcpkg` and minimum
+required dependencies for command-line tools, `README.md` documentation. Thus created projects are supported in `CLion`
+,` Visual Studio`, `VS Code`.
+
+### How to build `proj` source code?
+
+We need [`cmake`](https://cmake.org/download) build system and [`vcpkg`](https://github.com/microsoft/vcpkg) manager
+libraries. It's easy to install with system package manger, `brew` for example.
 
 1. Install the dependencies:  
    `vcpkg install` [`catch2`](https://github.com/catchorg/Catch2)  
@@ -45,7 +60,25 @@ as `brew`.
    After that, the main self-executable utility will appear in the `cmake-build-release` directory under the name `proj`
    . Tests can be run by running the `test` file located nearby.
 
+### Utility source code conventions?
+
+* The entry point must be located in the `Main.cpp` file for correct build script work.
+* To initialize resources, we using [modern parameter passing by value] (https://habr.com/ru/post/460955/), rather than
+  a constant link.
+* Only the result of the compilation of `* .cpp` files in the` src` folder is included in the release assembly.
+* The `src` folder contains the` *.cpp` and `*.h` project files together.
+* The `test` folder contains the` *.cpp` and `*.h` project test files together.
+* Each `*.h` file must define only one entity in the global namespace, whose name must match the file name.
+* Contents of `*.cpp` files not declared in` *.h` file must be protected from `external linkage` from others compilation
+  units by adding them to the anonymous namespace or adding the keyword `static`.
+
 ### TODO
 
-1. Add vcpkg to utility resources
-1. Create macOS, Linux, Windows universal build scripts
+1. The utility adds build scripts (for any OS) to each project.
+1. Build scripts are based on `vcpkg` repository.
+1. Build scripts check if `vcpkg` is installed and compiled.
+1. Build scripts scan `CMakeLists.txt` and match all `find_package` calls and founds `vcpkg` deps.
+1. Build scripts use local `vcpkg` to resolve dependencies.
+1. Add the utility to the repositories of popular dependency managers.
+1. Write pulications to habr, reddit, hackernews.
+1. Add more projects types.
