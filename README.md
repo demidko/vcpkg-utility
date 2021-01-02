@@ -20,8 +20,7 @@ tool like `maven` for Java, `dotnet` for .NET and `cargo` for Rust.
 
 Full compatibility with existing technologies.
 
-* To create a project, specify name, short description, and immediately get project repository with all configuration
-  files.
+* To create a project, specify name, short description, and immediately get prepared project repository with configs and docs.
 * No configuration files are added except for the traditional `CMakeLists.txt`.
 * Adding dependencies is done with one command through integration with [`vcpkg`] (https://github.com/microsoft/vcpkg).
 * A project with all dependencies can be built on different OSes without changing the configuration.
