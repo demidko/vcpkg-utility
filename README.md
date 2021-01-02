@@ -79,5 +79,5 @@ libraries. It's easy to install with system package manger, `brew` for example.
 1. Build scripts scan `CMakeLists.txt` and match all `find_package` calls and founds `vcpkg` deps.
 1. Build scripts use local `vcpkg` to resolve dependencies.
 1. Add the utility to the repositories of popular dependency managers.
-1. Write pulications to habr, reddit, hackernews.
+1. Write publications to habr, reddit, hackernews.
 1. Add more projects types.
