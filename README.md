@@ -7,11 +7,11 @@ with [` vcpkg`](https://github.com/microsoft/vcpkg).
 
 In the С++ world, now...
 
-* When an idea arises, you have to create manually `CMakeLists.txt`,` README.md`, a folder structure, or finish the
+* When an idea comes up, you have to create manually `CMakeLists.txt`,` README.md`, a folder structure, or finish the
   project created by the IDE to a portable state.
-* There is no dependency management.
+* There is no dependency management without difficulties.
 * There is no cross-platform build without Qt.
-* These problems overlap, causing pain and suffering for developers.
+* These problems overlap, causing troubles and problems for developers.
 
 Therefore, `proj` is a tool for creating and building cross-platform C++ projects using external dependencies. `proj` is a
 tool like `maven` for Java, `dotnet` for .NET and `cargo` for Rust.
@@ -20,7 +20,7 @@ tool like `maven` for Java, `dotnet` for .NET and `cargo` for Rust.
 
 Full compatibility with existing technologies.
 
-* To create a project, specify name, short description, and immediately get prepared project repository with configs and docs.
+* To create a project, specify name, short description, and immediately get prepared project repository with all configs and docs.
 * No configuration files are added except for the traditional `CMakeLists.txt`.
 * Adding dependencies is done with one command through integration with [`vcpkg`](https://github.com/microsoft/vcpkg).
 * A project with all dependencies can be built on different OS without configuration changes.
@@ -43,7 +43,7 @@ required dependencies for command-line tools, `README.md` documentation. Thus cr
 ### How to build `proj` source code?
 
 We need [`cmake`](https://cmake.org/download) build system and [`vcpkg`](https://github.com/microsoft/vcpkg) manager
-libraries. It's easy to install with system package manger, `brew` for example.
+libraries. It's easy to install with system package manager, `brew` for example.
 
 1. Install the dependencies:  
    `vcpkg install` [`catch2`](https://github.com/catchorg/Catch2)  
@@ -57,7 +57,7 @@ libraries. It's easy to install with system package manger, `brew` for example.
 1. Putting together the directory and tests:
    `cmake --build cmake-build-release --target all`
    After that, the main self-executable utility will appear in the `cmake-build-release` directory under the name `proj`
-   . Tests can be run by running the `test` file located nearby.
+   . The tests can be run by launching the `test` file located nearby.
 
 ### Utility source code conventions?
 
@@ -68,7 +68,7 @@ libraries. It's easy to install with system package manger, `brew` for example.
 * The `src` folder contains the` *.cpp` and `*.h` project files together.
 * The `test` folder contains the` *.cpp` and `*.h` project test files together.
 * Each `*.h` file must define only one entity in the global namespace, whose name must match the file name.
-* Contents of `*.cpp` files not declared in` *.h` file must be protected from `external linkage` from others compilation
+* The contents of `*.cpp` files not declared in` *.h` file must be protected from `external linkage` from others compilation
   units by adding them to the anonymous namespace or adding the keyword `static`.
 
 ### TODO
