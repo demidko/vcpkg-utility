@@ -34,7 +34,7 @@ Check in your package manager or [download here](https://github.com/demidko/proj
 
 #### Create new cross-platform C++ project
 
-`proj -n name -d 'description of your directory'`
+`proj -n name -d 'description of your project'`
 
 This command create `CMakeLists.txt` configuration for project and tests, entry points, adds `vcpkg` and minimum
 required dependencies for command-line tools, `README.md` documentation. Thus created projects are supported in `CLion`
