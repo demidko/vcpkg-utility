@@ -2,12 +2,9 @@
 
 #include <catch.hpp>
 #include <Project.h>
+#include <fmt/core.h>
 
 TEST_CASE("test project") {
-
-  auto x = Project("test_project", "short description")
-   .addGit();
-
-
+  Project("test_project").addReadme();
   REQUIRE(1 == 1);
 }

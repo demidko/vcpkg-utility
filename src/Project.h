@@ -16,5 +16,5 @@ struct Project {
 
   Project &addSources();
 
-  explicit Project(std::string name, std::string description = "");
+  explicit Project(std::string_view name, std::string_view description = "");
 };

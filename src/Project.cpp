@@ -5,17 +5,6 @@
 
 namespace {
 
-  std::filesystem::path mkdir(const std::filesystem::path &dir) {
-    auto parent = dir.parent_path();
-    if (!std::filesystem::exists(parent)) {
-      mkdir(parent);
-    }
-    if (!std::filesystem::exists(dir)) {
-      std::filesystem::create_directory(dir);
-    }
-    return dir;
-  }
-
   template<typename... Args>
   void create(const std::filesystem::path &file, std::string_view text, Args &&... args) {
     mkdir(file.parent_path());
@@ -130,10 +119,10 @@ Project &Project::addSources() {
   return *this;
 }
 
-Project::Project(std::string name, std::string description) :
-  name(move(name)),
-  description(move(description)),
-  directory(mkdir(std::filesystem::current_path() / name)) {}
+Project::Project(std::string_view name, std::string_view description) :
+  name(name),
+  description(description),
+  directory(mkdir(std::filesystem::current_path().append(name))) {}
 
 
 

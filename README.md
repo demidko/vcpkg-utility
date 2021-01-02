@@ -44,3 +44,8 @@ as `brew`.
    `cmake --build cmake-build-release --target all`
    After that, the main self-executable utility will appear in the `cmake-build-release` directory under the name `proj`
    . Tests can be run by running the `test` file located nearby.
+
+### TODO
+
+1. Add vcpkg to utility resources
+1. Create macOS, Linux, Windows universal build scripts
