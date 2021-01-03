@@ -1,7 +1,7 @@
-#include <Project.h>
-#include <Filesystem.h>
-#include <Command.h>
-#include <Templates.h>
+#include "Project.h"
+#include "Filesystem.h"
+#include "Command.h"
+#include "Resources.h"
 
 Project::Project(std::string name, std::string description) :
   description(std::move(description)),
@@ -12,7 +12,7 @@ Project::Project(std::string name, std::string description) :
   Filesystem::createDirectoryWithParents(directory);
 }
 
-using namespace Templates;
+using namespace Resources;
 
 Project &Project::addGit() {
   fmt::print("dir: {}", std::string(directory));
@@ -22,18 +22,18 @@ Project &Project::addGit() {
 }
 
 Project &Project::addCMakeLists() {
-  Filesystem::createTextFile(directory / "CMakeLists.txt", CMAKE_CONFIG_TEXT, name);
+  Filesystem::formatToFile(directory / "CMakeLists.txt", CMAKE_CONFIG_TEXT, name);
   return *this;
 }
 
 Project &Project::addReadme() {
-  Filesystem::createTextFile(directory / "README.md", README_TEXT, name, description);
+  Filesystem::formatToFile(directory / "README.md", README_TEXT, name, description);
   return *this;
 }
 
 Project &Project::addSources() {
-  Filesystem::createTextFile(directory / "src/Main.cpp", MAIN_CPP_TEXT, name, description);
-  Filesystem::createTextFile(directory / "test/Test.cpp", TEST_CPP_TEXT);
+  Filesystem::formatToFile(directory / "src/Main.cpp", MAIN_CPP_TEXT, name, description);
+  Filesystem::formatToFile(directory / "test/Test.cpp", TEST_CPP_TEXT);
   return *this;
 }
 

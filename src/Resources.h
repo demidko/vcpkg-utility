@@ -1,8 +1,8 @@
 #include <string_view>
 
-namespace Templates {
+namespace Resources {
 
-  constexpr inline std::string_view CMAKE_CONFIG_TEXT =
+  constexpr inline std::string_view CMAKE_CONFIG_TEXT = //language=cmake
     "cmake_minimum_required(VERSION 3.17)\n"
     "set(CMAKE_CXX_STANDARD 20)\n"
     "set(CMAKE_CXX_STANDARD_REQUIRED ON)\n"
@@ -30,7 +30,7 @@ namespace Templates {
     "target_link_libraries(test PRIVATE CLI11::CLI11)\n"
     "target_link_libraries(test PRIVATE fmt::fmt fmt::fmt-header-only)";
 
-  constexpr inline std::string_view README_TEXT =
+  constexpr inline std::string_view README_TEXT =//language=markdown
     "## {0}\n"
     "\n"
     "{1}\n"
@@ -63,6 +63,7 @@ namespace Templates {
     "   . Tests can be run by running the `test` file located nearby.";
 
   constexpr inline std::string_view MAIN_CPP_TEXT =
+    //language=cpp
     "#include <CLI/App.hpp>\n"
     "#include <CLI/Formatter.hpp>\n"
     "#include <CLI/Config.hpp>\n"
@@ -74,7 +75,7 @@ namespace Templates {
     "  CLI11_PARSE(utility, argc, argv)\n"
     "}";
 
-  constexpr inline std::string_view TEST_CPP_TEXT =
+  constexpr inline std::string_view TEST_CPP_TEXT = //language=cpp
     "#define CATCH_CONFIG_MAIN\n"
     "\n"
     "#include <catch.hpp>\n"
@@ -83,6 +84,43 @@ namespace Templates {
     "  REQUIRE(1 == 1);\n"
     "}";
 
+  constexpr inline std::string_view GITIGNORE_TEXT =
+    "# Prerequisites\n"
+    "*.d\n"
+    "\n"
+    "# Compiled Object files\n"
+    "*.slo\n"
+    "*.lo\n"
+    "*.o\n"
+    "*.obj\n"
+    "\n"
+    "# Precompiled Headers\n"
+    "*.gch\n"
+    "*.pch\n"
+    "\n"
+    "# Compiled Dynamic libraries\n"
+    "*.so\n"
+    "*.dylib\n"
+    "*.dll\n"
+    "\n"
+    "# Fortran module files\n"
+    "*.mod\n"
+    "*.smod\n"
+    "\n"
+    "# Compiled Static libraries\n"
+    "*.lai\n"
+    "*.la\n"
+    "*.a\n"
+    "*.lib\n"
+    "\n"
+    "# Executables\n"
+    "*.exe\n"
+    "*.out\n"
+    "*.app\n"
+    "\n"
+    "cmake-build-release\n"
+    ".idea\n"
+    ".DS_Store";
 }
 
 

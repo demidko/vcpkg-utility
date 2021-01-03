@@ -1,7 +1,7 @@
 #include <CLI/App.hpp>
 #include <CLI/Formatter.hpp>
 #include <CLI/Config.hpp>
-#include <Project.h>
+#include "Project.h"
 
 int main(int argc, char **argv) {
 
