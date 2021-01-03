@@ -2,35 +2,36 @@
 
 namespace Resources {
 
-  constexpr inline std::string_view CMAKE_CONFIG_TEXT = //language=cmake
+  constexpr inline std::string_view EDITORCONFIG_TEXT =
+    "[*.{c++,cc,cpp,cxx,h,h++,hh,hpp,hxx,inl,ipp,tlh,tli}]\n"
+    "max_line_length = 120\n"
+    "indent_size = 2\n"
+    "continuation_indent_size = 2";
+
+  constexpr inline std::string_view CMAKE_CONFIG_TEXT =
     "cmake_minimum_required(VERSION 3.17)\n"
     "set(CMAKE_CXX_STANDARD 20)\n"
     "set(CMAKE_CXX_STANDARD_REQUIRED ON)\n"
     "\n"
-    "#[[vcpkg deps]]\n"
-    "find_package(CLI11 CONFIG REQUIRED)\n"
+    "project({0})\n"
+    "file(GLOB proj_sources src/*.cpp)\n"
+    "add_executable({0} ${proj_sources})\n"
     "find_package(fmt CONFIG REQUIRED)\n"
+    "target_link_libraries(proj PRIVATE fmt::fmt fmt::fmt-header-only)\n"
+    "find_package(CLI11 CONFIG REQUIRED)\n"
+    "target_link_libraries(proj PRIVATE CLI11::CLI11)\n"
+    "\n"
+    "project(test)\n"
+    "#[[Changing the entry point for tests]]\n"
+    "list(FILTER proj_sources EXCLUDE REGEX \".*Main.cpp$\")\n"
+    "file(GLOB test_sources test/*.cpp)\n"
+    "add_executable(test ${proj_sources} ${test_sources})\n"
     "find_package(Catch2 CONFIG REQUIRED)\n"
-    "\n"
-    "#[[main directory]]\n"
-    "directory({0})\n"
-    "path(GLOB proj_src src/*.cpp)\n"
-    "add_executable({0} ${proj_src})\n"
-    "include_directories(src)\n"
-    "target_link_libraries({0} PRIVATE CLI11::CLI11)\n"
-    "target_link_libraries({0} PRIVATE fmt::fmt fmt::fmt-header-only)\n"
-    "\n"
-    "#[[test directory]]\n"
-    "directory(test)\n"
-    "list(FILTER proj_src EXCLUDE REGEX \".*Main.cpp$\")\n"
-    "path(GLOB test_src test/*.cpp)\n"
-    "add_executable(test ${proj_src} ${test_src})\n"
-    "include_directories(test)\n"
     "target_link_libraries(test PRIVATE Catch2::Catch2)\n"
     "target_link_libraries(test PRIVATE CLI11::CLI11)\n"
     "target_link_libraries(test PRIVATE fmt::fmt fmt::fmt-header-only)";
 
-  constexpr inline std::string_view README_TEXT =//language=markdown
+  constexpr inline std::string_view README_TEXT =
     "## {0}\n"
     "\n"
     "{1}\n"
@@ -75,7 +76,7 @@ namespace Resources {
     "  CLI11_PARSE(utility, argc, argv)\n"
     "}";
 
-  constexpr inline std::string_view TEST_CPP_TEXT = //language=cpp
+  constexpr inline std::string_view TEST_CPP_TEXT =
     "#define CATCH_CONFIG_MAIN\n"
     "\n"
     "#include <catch.hpp>\n"
@@ -120,7 +121,8 @@ namespace Resources {
     "\n"
     "cmake-build-release\n"
     ".idea\n"
-    ".DS_Store";
+    ".DS_Store\n"
+    ".editorconfig";
 }
 
 

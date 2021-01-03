@@ -7,9 +7,6 @@
 
 TEST_CASE("test project") {
   auto testProject = Project("test_project")
-    .addGit()
-    .addSources()
-    .addCMakeLists()
     .addReadme();
   std::filesystem::remove(testProject.directory);
   REQUIRE(1 == 1);
