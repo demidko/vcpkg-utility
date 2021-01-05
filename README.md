@@ -1,4 +1,4 @@
-## proj
+## `proj`
 
 A cross-platform `C++20` build system with dependency manager, powered by integration of [`cmake`](https://cmake.org/)
 with [` vcpkg`](https://github.com/microsoft/vcpkg).
