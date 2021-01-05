@@ -25,9 +25,9 @@ Check in your package manager or [download here](https://github.com/demidko/proj
 * Full compatibility with existing technologies. No build configuration files are added except for the
   traditional `CMakeLists.txt`.
 * To create project, specify name, short description, and immediately get prepared repository with all configs and docs.
+* Created projects are supported in `CLion`,` Visual Studio`, `VS Code` IDEs.
 * Adding dependencies is done with one command through integration with [`vcpkg`](https://github.com/microsoft/vcpkg).
 * A project with all dependencies can be built on different OS without configuration changes.
-* Created projects are supported in `CLion`,` Visual Studio`, `VS Code` IDEs.
 
 ### Examples?
 
