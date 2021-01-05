@@ -29,9 +29,9 @@ a tool like `maven` for Java, `dotnet` for .NET and `cargo` for Rust.
 
 Check in your package manager or [download here](https://github.com/demidko/proj/releases).
 
-### Examples of using `proj`
+### `proj` examples?
 
-`proj -n name -d 'description of your project'`
+`proj -n MyNewProject -d 'description of my new project'`
 
 This command create `CMakeLists.txt` configuration for project and tests, entry points, adds `vcpkg` and minimum
 required dependencies for command-line tools, `README.md` documentation. Thus created projects are supported in `CLion`
@@ -53,11 +53,11 @@ libraries. It's easy to install with system package manager, `brew` for example.
    On Windows, instead of the code in ``` `` ``` quotes, manually substitute the parameter obtained by
    calling `vcpkg integrate install`.
 1. Putting together the directory and tests:
-   `cmake --build cmake-build-release --target all`
+   `cmake --build cmake-build-release --target all`  
    After that, the main self-executable utility will appear in the `cmake-build-release` directory under the name `proj`
    . The tests can be run by launching the `test` file located nearby.
 
-### Utility source code conventions?
+### This repository source code conventions?
 
 * The entry point must be located in the `Main.cpp` file for correct build script work.
 * To initialize resources, we using [modern parameter passing by value](https://habr.com/ru/post/460955/), rather than a
