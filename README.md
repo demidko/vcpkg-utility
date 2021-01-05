@@ -16,6 +16,10 @@ In the С++ world, now...
 Therefore, `proj` is a tool for creating and building cross-platform C++ projects with external dependencies. `proj` is
 a tool like `maven` for Java, `dotnet` for .NET and `cargo` for Rust.
 
+### How to install `proj`?
+
+Check in your package manager or [download here](https://github.com/demidko/proj/releases).
+
 ### `proj` features and benefits
 
 * Full compatibility with existing technologies. No build configuration files are added except for the
@@ -25,11 +29,7 @@ a tool like `maven` for Java, `dotnet` for .NET and `cargo` for Rust.
 * A project with all dependencies can be built on different OS without configuration changes.
 * Created projects are supported by all modern IDEs.
 
-### How to install `proj`?
-
-Check in your package manager or [download here](https://github.com/demidko/proj/releases).
-
-### `proj` examples?
+### Examples?
 
 `proj -n MyNewProject -d 'description of my new project'`
 
@@ -57,7 +57,7 @@ libraries. It's easy to install with system package manager, `brew` for example.
    After that, the main self-executable utility will appear in the `cmake-build-release` directory under the name `proj`
    . The tests can be run by launching the `test` file located nearby.
 
-### This repository source code conventions?
+### This repository source code conventions
 
 * The entry point must be located in the `Main.cpp` file for correct build script work.
 * To initialize resources, we using [modern parameter passing by value](https://habr.com/ru/post/460955/), rather than a
