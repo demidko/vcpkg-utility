@@ -7,7 +7,7 @@ with [` vcpkg`](https://github.com/microsoft/vcpkg).
 
 In the С++ world, now...
 
-* When an idea comes up, you have to createUtility manually `CMakeLists.txt`,` README.md`, a folder structure, or finish
+* When an idea comes up, you have to create manually `CMakeLists.txt`,` README.md`, a folder structure, or finish
   the project created by the IDE to a portable state.
 * There is no dependency management without difficulties.
 * There is no cross-platform build without Qt.
