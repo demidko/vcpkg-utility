@@ -34,7 +34,7 @@ Check in your package manager or [download here](https://github.com/demidko/proj
 `proj -n MyNewProject -d 'description of my new project'`
 
 This command create `CMakeLists.txt` build configuration for project and tests, entry points, adds `vcpkg` and minimum
-required dependencies for command line tools, `README.md` documentation.
+required dependencies for command line tools, `README.md` documentation for manually build.
 
 ### How to build `proj` source code?
 
