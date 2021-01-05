@@ -1,5 +1,4 @@
 #include "Project.h"
-#include "Filesystem.h"
 #include "Command.h"
 #include "Resources.h"
 
@@ -23,8 +22,8 @@ Project &Project::makeCommit(std::string_view comment) {
   return *this;
 }
 
-Project &Project::addCMakeConfig() {
-  formatTo("CMakeLists.txt", CMAKE_CONFIG_TEXT, name);
+Project &Project::addCMakeConfigForTool() {
+  formatTo("CMakeLists.txt", CMAKE_CONFIG_FOR_TOOL_TEXT, name);
   return *this;
 }
 
@@ -38,8 +37,8 @@ Project &Project::addTestEntryPoint() {
   return *this;
 }
 
-Project &Project::addToolEntryPoint() {
-  formatTo("src/Main.cpp", MAIN_CPP_TEXT, name, description);
+Project &Project::addEntryPointForTool() {
+  formatTo("src/Main.cpp", MAIN_CPP_FOR_TOOL_TEXT, name, description);
   return *this;
 }
 
@@ -59,16 +58,17 @@ Project &Project::addGitIgnoreConfig() {
 }
 
 Project &Project::createCrossPlatformToolSkeleton() {
-  return createDirectory()
-    .addReadmeFile()
-    .addCMakeConfig()
-    .addEditorConfig()
-    .addTestEntryPoint()
-    .addToolEntryPoint()
-    .initRepository()
-    .addGitIgnoreConfig()
-    .makeCommit(fmt::format("Project {} created by 'proj' tool", name));
-
+  createDirectory();
+  addReadmeFile();
+  addCMakeConfigForTool();
+  addEditorConfig();
+  addTestEntryPoint();
+  addEntryPointForTool();
+  addGitIgnoreConfig();
+  initRepository();
+  return makeCommit(
+    fmt::format("Project {} created by <proj> tool", name)
+  );
 }
 
 

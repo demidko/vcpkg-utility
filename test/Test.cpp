@@ -6,6 +6,7 @@
 
 
 TEST_CASE("test project") {
+
   auto project = Project("test_project").createCrossPlatformToolSkeleton();
 
   //std::filesystem::remove_all(project.directory);

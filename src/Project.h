@@ -21,9 +21,9 @@ private:
 
   Project &addReadmeFile();
 
-  Project &addCMakeConfig();
+  Project &addCMakeConfigForTool();
 
-  Project &addToolEntryPoint();
+  Project &addEntryPointForTool();
 
   Project &addTestEntryPoint();
 

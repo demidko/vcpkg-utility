@@ -8,14 +8,14 @@ namespace Resources {
     "indent_size = 2\n"
     "continuation_indent_size = 2";
 
-  constexpr inline std::string_view CMAKE_CONFIG_TEXT =
+  constexpr inline std::string_view CMAKE_CONFIG_FOR_TOOL_TEXT =
     "cmake_minimum_required(VERSION 3.17)\n"
     "set(CMAKE_CXX_STANDARD 20)\n"
     "set(CMAKE_CXX_STANDARD_REQUIRED ON)\n"
     "\n"
     "project({0})\n"
     "file(GLOB proj_sources src/*.cpp)\n"
-    "add_executable({0} ${proj_sources})\n"
+    "add_executable({0} $\{proj_sources\})\n"
     "find_package(fmt CONFIG REQUIRED)\n"
     "target_link_libraries(proj PRIVATE fmt::fmt fmt::fmt-header-only)\n"
     "find_package(CLI11 CONFIG REQUIRED)\n"
@@ -25,7 +25,7 @@ namespace Resources {
     "#[[Changing the entry point for tests]]\n"
     "list(FILTER proj_sources EXCLUDE REGEX \".*Main.cpp$\")\n"
     "file(GLOB test_sources test/*.cpp)\n"
-    "add_executable(test ${proj_sources} ${test_sources})\n"
+    "add_executable(test $\{proj_sources\} $\{test_sources\})\n"
     "find_package(Catch2 CONFIG REQUIRED)\n"
     "target_link_libraries(test PRIVATE Catch2::Catch2)\n"
     "target_link_libraries(test PRIVATE CLI11::CLI11)\n"
@@ -63,7 +63,7 @@ namespace Resources {
     "   After that, the main self-executable utility will appear in the `cmake-build-release` directory under the name `{0}`\n"
     "   . Tests can be run by running the `test` file located nearby.";
 
-  constexpr inline std::string_view MAIN_CPP_TEXT =
+  constexpr inline std::string_view MAIN_CPP_FOR_TOOL_TEXT =
     //language=cpp
     "#include <CLI/App.hpp>\n"
     "#include <CLI/Formatter.hpp>\n"
