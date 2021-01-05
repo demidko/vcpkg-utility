@@ -78,9 +78,13 @@ namespace {
     "int main(int argc, char **argv) {lb}\n"
     "  CLI::App utility(\"{1}\", \"{0}\");\n"
     "  CLI11_PARSE(utility, argc, argv)\n"
+    "  fmt::print(\n"
+    "    fg(color::dark_orange),\n"
+    "    \"{0} works!\"\n"
+    "  );\n"
     "{rb}";
 
-  constexpr inline std::string_view TEST_CPP_TEXT =
+  constexpr inline std::string_view TEST_CPP_FOR_TEST_TEXT =
     "#define CATCH_CONFIG_MAIN\n"
     "\n"
     "#include <catch.hpp>\n"
@@ -152,7 +156,7 @@ Project &Project::addReadmeFile() {
 }
 
 Project &Project::addTestEntryPoint() {
-  formatTo("test/Test.cpp", TEST_CPP_TEXT);
+  formatTo("test/Main.cpp", TEST_CPP_FOR_TEST_TEXT);
   return *this;
 }
 
