@@ -3,6 +3,10 @@
 A cross-platform `C++20` build system with dependency manager, powered by integration of [`cmake`](https://cmake.org/)
 with [` vcpkg`](https://github.com/microsoft/vcpkg).
 
+### How to install `proj`?
+
+Check in your package manager or [download here](https://github.com/demidko/proj/releases).
+
 ### Motivation and goals
 
 In the С++ world, now...
@@ -15,10 +19,6 @@ In the С++ world, now...
 
 Therefore, `proj` is a tool for creating and building cross-platform C++ projects with external dependencies. `proj` is
 a tool like `maven` for Java, `dotnet` for .NET and `cargo` for Rust.
-
-### How to install `proj`?
-
-Check in your package manager or [download here](https://github.com/demidko/proj/releases).
 
 ### `proj` features and benefits
 
