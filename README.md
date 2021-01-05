@@ -34,8 +34,8 @@ Check in your package manager or [download here](https://github.com/demidko/proj
 `proj -n MyNewProject -d 'description of my new project'`
 
 This command create `CMakeLists.txt` configuration for project and tests, entry points, adds `vcpkg` and minimum
-required dependencies for command-line tools, `README.md` documentation. Thus created projects are supported in `CLion`
-,` Visual Studio`, `VS Code`.
+required dependencies for command-line tools, `README.md` documentation. 
+Thus created projects are supported in `CLion`,` Visual Studio`, `VS Code`.
 
 ### How to build `proj` source code?
 
