@@ -7,7 +7,7 @@ with [` vcpkg`](https://github.com/microsoft/vcpkg).
 
 In the С++ world, now...
 
-* When an idea comes up, you have to create manually `CMakeLists.txt`,` README.md`, a folder structure, or finish the
+* When an idea comes up, you have to createUtility manually `CMakeLists.txt`,` README.md`, a folder structure, or finish the
   project created by the IDE to a portable state.
 * There is no dependency management without difficulties.
 * There is no cross-platform build without Qt.
@@ -20,7 +20,7 @@ tool like `maven` for Java, `dotnet` for .NET and `cargo` for Rust.
 
 Full compatibility with existing technologies.
 
-* To create a project, specify name, short description, and immediately get prepared project repository with all configs and docs.
+* To createUtility a project, specify name, short description, and immediately get prepared project repository with all configs and docs.
 * No configuration files are added except for the traditional `CMakeLists.txt`.
 * Adding dependencies is done with one command through integration with [`vcpkg`](https://github.com/microsoft/vcpkg).
 * A project with all dependencies can be built on different OS without configuration changes.
@@ -36,7 +36,7 @@ Check in your package manager or [download here](https://github.com/demidko/proj
 
 `proj -n name -d 'description of your project'`
 
-This command create `CMakeLists.txt` configuration for project and tests, entry points, adds `vcpkg` and minimum
+This command createUtility `CMakeLists.txt` configuration for project and tests, entry points, adds `vcpkg` and minimum
 required dependencies for command-line tools, `README.md` documentation. Thus created projects are supported in `CLion`
 ,` Visual Studio`, `VS Code`.
 
@@ -62,7 +62,7 @@ libraries. It's easy to install with system package manager, `brew` for example.
 ### Utility source code conventions?
 
 * The entry point must be located in the `Main.cpp` file for correct build script work.
-* To initialize resources, we using [modern parameter passing by value] (https://habr.com/ru/post/460955/), rather than
+* To initialize resources, we using [modern parameter passing by value](https://habr.com/ru/post/460955/), rather than
   a constant link.
 * Only the result of the compilation of `* .cpp` files in the` src` folder is included in the release assembly.
 * The `src` folder contains the` *.cpp` and `*.h` project files together.

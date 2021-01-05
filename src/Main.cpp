@@ -16,9 +16,5 @@ int main(int argc, char **argv) {
 
   CLI11_PARSE(utility, argc, argv)
 
-  Project(name, description)
-    .addGit()
-    .addCMakeLists()
-    .addSources()
-    .addReadme();
+  Project(name, description).createCrossPlatformToolSkeleton();
 }

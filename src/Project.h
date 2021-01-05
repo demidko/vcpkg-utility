@@ -1,5 +1,7 @@
 #include <string>
 #include <filesystem>
+#include <fstream>
+#include <fmt/core.h>
 
 struct Project {
 
@@ -9,11 +11,34 @@ struct Project {
 
   explicit Project(std::string name, std::string description = "");
 
-  Project &addGit();
+  Project &createCrossPlatformToolSkeleton();
 
-  Project &addReadme();
+private:
 
-  Project &addCMakeLists();
+  Project &makeCommit(std::string_view comment = "");
 
-  Project &addSources();
+  Project &initRepository();
+
+  Project &addReadmeFile();
+
+  Project &addCMakeConfig();
+
+  Project &addToolEntryPoint();
+
+  Project &addTestEntryPoint();
+
+  Project &addEditorConfig();
+
+  Project &addGitIgnoreConfig();
+
+  Project &createDirectory();
+
+  template<typename... Args>
+  void formatTo(const std::filesystem::path &file, std::string_view text, Args &&... args) {
+    auto path = directory / file;
+    if (auto dir = path.parent_path(); !std::filesystem::exists(dir)) {
+      std::filesystem::create_directories(dir);
+    }
+    std::ofstream(path) << fmt::format(text, args...);
+  }
 };
