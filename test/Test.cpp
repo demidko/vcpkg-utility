@@ -3,16 +3,16 @@
 #include <catch.hpp>
 #include <fmt/core.h>
 #include "../src/Project.h"
+#include <streambuf>
 
-TEST_CASE("fmt library should works correctly") {
-  auto text = "empty \{} xx \n";
-  fmt::print(text);
-}
+std::string readAllText(std::filesystem::path)
 
-TEST_CASE("test project") {
+using namespace Catch::Matchers;
 
-  auto project = Project("test_project").createCrossPlatformToolSkeleton();
+TEST_CASE("ExampleProject") {
+  std::ifstream("df").rdbuf()
 
-  //std::filesystem::remove_all(project.directory);
-  REQUIRE(1 == 1);
+  auto p = Project("ExampleProject", "Little project for example").createToolSkeleton();
+  REQUIRE_THAT(, Equals());
+  std::filesystem::remove_all(p.directory);
 }

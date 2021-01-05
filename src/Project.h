@@ -11,11 +11,9 @@ struct Project {
 
   explicit Project(std::string name, std::string description = "");
 
-  Project &createCrossPlatformToolSkeleton();
+  Project &createToolSkeleton();
 
 private:
-
-  Project &makeCommit(std::string_view comment = "");
 
   Project &initRepository();
 
@@ -39,6 +37,6 @@ private:
     if (auto dir = path.parent_path(); !std::filesystem::exists(dir)) {
       std::filesystem::create_directories(dir);
     }
-    std::ofstream(path) << fmt::format(text, args...);
+    std::ofstream(path) << fmt::format(text, args..., fmt::arg("lb", '{'), fmt::arg("rb", '}'));
   }
 };

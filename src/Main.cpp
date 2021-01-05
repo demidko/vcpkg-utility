@@ -16,5 +16,5 @@ int main(int argc, char **argv) {
 
   CLI11_PARSE(utility, argc, argv)
 
-  Project(name, description).createCrossPlatformToolSkeleton();
+  Project(name, description).createToolSkeleton();
 }
