@@ -1,6 +1,6 @@
 ## `Utility`
 
-A cross-platform `C++23` command line tool template with dependency manager, powered by integration
+A cross-platform `C++20` command line tool template with dependency manager, powered by integration
 of [`cmake`](https://cmake.org/)
 with [` vcpkg`](https://github.com/microsoft/vcpkg).
 
