@@ -4,7 +4,7 @@ A cross-platform `C++23` command line tool template with dependency manager, pow
 of [`cmake`](https://cmake.org/)
 with [` vcpkg`](https://github.com/microsoft/vcpkg).
 
-### Template usage
+### Usage
 
 Make sure you are signed in to your GitHub account, then just click [`here`](https://github.com/demidko/utility/generate) to use template.
 
