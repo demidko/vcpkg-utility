@@ -1,7 +1,10 @@
 #include <CLI/App.hpp>
 #include <CLI/Formatter.hpp>
 #include <CLI/Config.hpp>
-#include "Project.h"
+#include <fmt/format.h>
+#include <fmt/core.h>
+#include <fmt/color.h>
+
 
 int main(int argc, char **argv) {
 
@@ -16,5 +19,7 @@ int main(int argc, char **argv) {
 
   CLI11_PARSE(utility, argc, argv)
 
-  Project(name, description).createToolSkeleton();
+  using fmt::color;
+
+  fmt::print(fg(color::dark_orange), "name: {}\ndescription: {}\n", name, description);
 }
