@@ -21,7 +21,7 @@ In the С++ world, now...
 Therefore, `Utility` is a template for creating and building cross-platform C++ projects with external
 dependencies. `Utility` is a tool like `start.your-technology.io` sites for Java, .NET and Rust.
 
-### `Utility` features and benefits
+### Features and benefits
 
 * Full compatibility with existing technologies. No build configuration files are added except for the
   traditional `CMakeLists.txt`.
@@ -29,7 +29,7 @@ dependencies. `Utility` is a tool like `start.your-technology.io` sites for Java
 * Adding dependencies is done with one command through integration with [`vcpkg`](https://github.com/microsoft/vcpkg).
 * A project with all dependencies can be built on different OS without configuration changes.
 
-### How to build project?
+### Build
 
 We need [`cmake`](https://cmake.org/download) build system and [`vcpkg`](https://github.com/microsoft/vcpkg) manager
 libraries. It's easy to install with system package manager, `brew` for example.
