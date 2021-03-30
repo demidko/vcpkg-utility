@@ -6,7 +6,7 @@ with [` vcpkg`](https://github.com/microsoft/vcpkg).
 
 ### Template usage
 
-* Just click [`here`](https://github.com/demidko/utility/generate) to use template.
+* Make sure you are signed in to your GitHub account, then just click [`here`](https://github.com/demidko/utility/generate) to use template. (You )
 
 ### Motivation and goals
 
