@@ -35,9 +35,7 @@ We need [`cmake`](https://cmake.org/download) build system and [`vcpkg`](https:/
 libraries. It's easy to install with system package manager, `brew` for example.
 
 1. Install the dependencies:  
-   `vcpkg install` [`catch2`](https://github.com/catchorg/Catch2)  
-   `vcpkg install` [`cli11`](https://github.com/CLIUtils/CLI11)  
-   `vcpkg install` [`fmt`](https://github.com/fmtlib/fmt)  
+   `vcpkg install` [`catch2`](https://github.com/catchorg/Catch2) [`cli11`](https://github.com/CLIUtils/CLI11) [`fmt`](https://github.com/fmtlib/fmt)  
    _(If you are using an IDE, you can stop at this step simply by setting `CMake options` as the result
    of `vcpkg integrate install` command)_
 1. Prepare the directory for building using the dependencies `vcpkg`:  
