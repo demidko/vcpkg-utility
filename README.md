@@ -1,4 +1,4 @@
-## `Utility`
+## `vcpkg-utility`
 
 A cross-platform `C++20` command line tool template with dependency manager, powered by integration
 of [`cmake`](https://cmake.org/)
@@ -18,8 +18,8 @@ In the С++ world, now...
 * There is no cross-platform build without Qt.
 * These problems overlap, causing troubles for developers.
 
-Therefore, `Utility` is a template for creating and building cross-platform C++ projects with external
-dependencies. `Utility` is a tool like `start.your-technology.io` sites for Java, .NET and Rust.
+Therefore, `vcpkg-utility` is a template for creating and building cross-platform C++ projects with external
+dependencies. `vcpkg-utility` is a tool like `start.your-technology.io` sites for Java, .NET and Rust.
 
 ### Features and benefits
 
