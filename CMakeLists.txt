@@ -12,7 +12,7 @@ find_package(CLI11 CONFIG REQUIRED)
 target_link_libraries(proj PRIVATE CLI11::CLI11)
 
 #[[Changing the entry point for tests]]
-list(FILTER proj_sources EXCLUDE REGEX ".*Main.cpp$")
+list(FILTER proj_sources EXCLUDE REGEX ".*/Main.cpp$")
 file(GLOB test_sources test/*.cpp)
 add_executable(test ${proj_sources} ${test_sources})
 find_package(Catch2 CONFIG REQUIRED)
